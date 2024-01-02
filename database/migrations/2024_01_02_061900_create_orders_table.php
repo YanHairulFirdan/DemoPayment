@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('customer_id')->constrained('customers');
+            $table->unsignedDouble('total');
+            $table->string('status');
             $table->timestamps();
         });
     }
